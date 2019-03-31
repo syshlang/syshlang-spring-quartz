@@ -13,22 +13,23 @@ package com.syshlang.quartz.core.quartz.schedulerfactory.quartzjob;
 
 import com.syshlang.quartz.core.common.QuartzConstants;
 import com.syshlang.quartz.model.DynamicQuartz;
+import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.quartz.QuartzJobBean;
+
 
 import java.util.Date;
 
-public abstract class AbstractQuartzJob extends QuartzJobBean {
+public abstract class AbstractQuartzJob implements Job {
 
     private static final Logger log = LoggerFactory.getLogger(AbstractQuartzJob.class);
 
     private static ThreadLocal<Date> threadLocal = new ThreadLocal<>();
 
     @Override
-    protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+    public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         DynamicQuartz dynamicQuartz = (DynamicQuartz) jobExecutionContext.getMergedJobDataMap().get(QuartzConstants.TASK_PROPERTIES_KEY);
         try {
             if (dynamicQuartz != null) {
@@ -41,6 +42,7 @@ public abstract class AbstractQuartzJob extends QuartzJobBean {
             after(jobExecutionContext, dynamicQuartz, e.getMessage());
         }
     }
+
 
     /**
      * 执行方法

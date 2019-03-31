@@ -14,6 +14,7 @@ package com.syshlang.quartz.core.quartz.schedulerfactory.quartzjob;
 import com.syshlang.quartz.core.quartz.schedulerfactory.quartzutils.JobUtilFactoryUtil;
 import com.syshlang.quartz.model.DynamicQuartz;
 import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,4 +30,6 @@ public class AsyncJobFactory extends AbstractQuartzJob {
     protected void doExecute(JobExecutionContext jobExecutionContext, DynamicQuartz dynamicQuartz){
         JobUtilFactoryUtil.invokeMethod(jobExecutionContext,dynamicQuartz);
     }
+
+
 }
