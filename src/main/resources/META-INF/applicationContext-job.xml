@@ -62,8 +62,7 @@
 		<property name="jobDetail" ref="springFrameworkQuartzJobDemoBeanId"/>
 	</bean>
 	<bean id="springFrameworkQuartzJobDemoBeanId" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-
-		<property name="jobClass" value="com.grgbanking.quartz.schedulerframework.SpringFrameworkQuartzJobDemo"/>
+		<property name="jobClass" value="com.syshlang.quartz.core.quartz.schedulerframework.SpringFrameworkQuartzJobDemo"/>
 		<property name="name" value="springFrameworkQuartzJobDemoJob"/>
 		<property name="durability" value="true" />
     </bean>
