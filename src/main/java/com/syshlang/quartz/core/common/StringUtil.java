@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. GRGBanking
+ * Copyright (c) 2019.
  * @File: StringUtil.java
  * @Description:
  * @Author: sunys

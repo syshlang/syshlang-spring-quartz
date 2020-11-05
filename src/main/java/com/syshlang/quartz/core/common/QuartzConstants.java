@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. GRGBanking
+ * Copyright (c) 2019.
  * @File: QuartzConstants.java
  * @Description:
  * @Author: sunys
@@ -15,7 +15,7 @@ package com.syshlang.quartz.core.common;
 public class QuartzConstants {
 
     /** Jobkey */
-    public static final String DYNAMIC_QUARTZ_KEY_PREFIX = "EBM_DYNAMIC_QUARTZ";
+    public static final String DYNAMIC_QUARTZ_KEY_PREFIX = "SYSHLANG_DYNAMIC_QUARTZ";
 
     /** 执行目标key */
     public static final String TASK_PROPERTIES_KEY = "TASK_PROPERTIES_KEY";

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. GRGBanking
+ * Copyright (c) 2019.
  * @File: SpringFrameworkQuartzJobDemo.java
  * @Description:
  * @Author: sunys
@@ -27,7 +27,7 @@ import java.util.Date;
 public class SpringFrameworkQuartzJobDemo implements Job {
 	
 	public void springFrameworkQuartzJobDemoJob() {
-		System.out.println("框架定时器示例：我是定时器【quartzJob】,可在ebm-quartz\\src\\main\\resources\\META-INF\\applicationContext-job.xml中进行配置："+new Date().toString());
+		System.out.println("框架定时器示例：我是定时器【quartzJob】,可在syshlang-quartz\\src\\main\\resources\\META-INF\\applicationContext-job.xml中进行配置："+new Date().toString());
 	}
 
 	@Override
