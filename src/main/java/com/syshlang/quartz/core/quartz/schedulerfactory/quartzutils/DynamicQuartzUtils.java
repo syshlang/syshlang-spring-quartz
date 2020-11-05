@@ -10,7 +10,6 @@
 package com.syshlang.quartz.core.quartz.schedulerfactory.quartzutils;
 
 
-import com.syshlang.quartz.core.common.MessageSourceHelper;
 import com.syshlang.quartz.core.common.QuartzConstants;
 import com.syshlang.quartz.core.common.QuartzException;
 import com.syshlang.quartz.model.DynamicQuartz;
@@ -35,7 +34,7 @@ public class DynamicQuartzUtils {
         JobDetail jobDetail = JobBuilder.newJob(jobClass).withIdentity(JobUtilFactoryUtil.getJobKey(dynamicQuartz.getId())).build();
         String cronExpression = dynamicQuartz.getCronExpression();
         if (!CronUtils.isValid(cronExpression)){
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.cronExpression.error"));
+            throw  new QuartzException("quartz.cronExpression.error");
         }
         // 表达式调度构建器
         CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule(cronExpression);
@@ -54,7 +53,7 @@ public class DynamicQuartzUtils {
             }
         } catch (SchedulerException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.create.error"),dynamicQuartz.getQuartzName());
+            throw  new QuartzException("quartz.create.error",dynamicQuartz.getQuartzName());
         }
     }
 
@@ -72,7 +71,7 @@ public class DynamicQuartzUtils {
             }
         } catch (SchedulerException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.delete.error"),dynamicQuartz.getQuartzName());
+            throw  new QuartzException("quartz.delete.error",dynamicQuartz.getQuartzName());
         }
     }
 
@@ -90,7 +89,7 @@ public class DynamicQuartzUtils {
             }
         } catch (QuartzException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.update.error"),dynamicQuartz.getQuartzName());
+            throw  new QuartzException("quartz.update.error",dynamicQuartz.getQuartzName());
         }
     }
 
@@ -104,7 +103,7 @@ public class DynamicQuartzUtils {
             scheduler.pauseJob(JobUtilFactoryUtil.getJobKey(dynamicQuartz.getId()));
         } catch (SchedulerException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.pause.error"),dynamicQuartz.getQuartzName());
+            throw  new QuartzException("quartz.pause.error",dynamicQuartz.getQuartzName());
         }
     }
 
@@ -118,7 +117,7 @@ public class DynamicQuartzUtils {
             scheduler.resumeJob(JobUtilFactoryUtil.getJobKey(dynamicQuartz.getId()));
         } catch (SchedulerException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.resume.error"),dynamicQuartz.getQuartzName());
+            throw  new QuartzException("quartz.resume.error",dynamicQuartz.getQuartzName());
         }
     }
 
@@ -135,7 +134,7 @@ public class DynamicQuartzUtils {
             scheduler.triggerJob(JobUtilFactoryUtil.getJobKey(dynamicQuartz.getId()), dataMap);
         } catch (SchedulerException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.run.error"),dynamicQuartz.getQuartzName());
+            throw  new QuartzException("quartz.run.error",dynamicQuartz.getQuartzName());
         }
     }
 

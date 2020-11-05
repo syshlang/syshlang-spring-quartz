@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 /**
  *
  * 异步任务 (允许并发执行）
+ * @author sunys
  */
 public class AsyncJobFactory extends AbstractQuartzJob {
 

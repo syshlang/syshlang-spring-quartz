@@ -18,6 +18,7 @@ import org.quartz.PersistJobDataAfterExecution;
 
 /**
  * 同步任务 (不允许并发执行）
+ * @author sunys
  */
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution

@@ -52,13 +52,13 @@ public class JobUtilFactoryUtil {
             }
         } catch (NoSuchMethodException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.NoSuchMethodException"));
+            throw  new QuartzException("quartz.NoSuchMethodException");
         } catch (IllegalAccessException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.IllegalAccessException"));
+            throw  new QuartzException("quartz.IllegalAccessException");
         } catch (InvocationTargetException e) {
             log.error(dynamicQuartz.getQuartzName(),e);
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.InvocationTargetException"));
+            throw  new QuartzException("quartz.InvocationTargetException");
         }
     }
 
@@ -69,7 +69,7 @@ public class JobUtilFactoryUtil {
      */
     public static Class<? extends Job> getDynamicQuartzClass(String concurrent) {
         if (StringUtil.isEmpty(concurrent)){
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.concurrent.error"));
+            throw  new QuartzException("quartz.concurrent.error");
         }
         return  QuartzConstants.QUARTZ_JOB_ASYNC.equals(concurrent) ? AsyncJobFactory.class: SyncJobFactory.class;
     }
@@ -92,7 +92,7 @@ public class JobUtilFactoryUtil {
     public static CronScheduleBuilder handleCronScheduleMisfirePolicy(DynamicQuartz dynamicQuartz, CronScheduleBuilder cronScheduleBuilder) {
         String misfirePolicy = dynamicQuartz.getMisfirePolicy();
         if (StringUtil.isEmpty(misfirePolicy)){
-            throw  new QuartzException(MessageSourceHelper.getMessage("quartz.misfirePolicy.error"));
+            throw  new QuartzException("quartz.misfirePolicy.error");
         }
         if (QuartzConstants.MISFIRE_DEFAULT.equals(misfirePolicy)){
             return  cronScheduleBuilder;
